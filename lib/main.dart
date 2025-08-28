@@ -9,7 +9,7 @@ import 'theme/app_theme.dart';
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
-    statusBarIconBrightness: Brightness.light,
+    statusBarIconBrightness: Brightness.dark, // Changed for light theme
   ));
   runApp(NexusApp());
 }
@@ -19,7 +19,7 @@ class NexusApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'NEXUS - Reality Engine',
-      theme: AppTheme.darkTheme,
+      theme: AppTheme.lightTheme, // Updated to use the new light theme
       home: const AppShell(),
       debugShowCheckedModeBanner: false,
     );
@@ -35,7 +35,7 @@ class AppShell extends StatefulWidget {
 
 class _AppShellState extends State<AppShell>
     with TickerProviderStateMixin {
-  
+
   PageController _pageController = PageController();
   int _currentStage = 0;
   
@@ -114,15 +114,15 @@ void _nextStage(Map<String, dynamic>? data) {
       body: SafeArea(
         child: Stack(
           children: [
-            // Background gradient
+            // Background gradient - Updated for light theme
             Container(
               decoration: BoxDecoration(
                 gradient: RadialGradient(
                   center: const Alignment(0.3, -0.5),
                   radius: 1.2,
                   colors: [
-                    const Color(0xFF1A1A2E).withOpacity(0.8),
-                    const Color(0xFF16213E).withOpacity(0.6),
+                    const Color(0xFFE5E7EB).withOpacity(0.8), // Updated color
+                    const Color(0xFFF9FAFB).withOpacity(0.6), // Updated color
                     AppTheme.backgroundColor,
                   ],
                 ),
@@ -186,8 +186,8 @@ void _nextStage(Map<String, dynamic>? data) {
             height: 2,
             decoration: BoxDecoration(
               color: isActive 
-                ? (isCurrent ? AppTheme.accentColor : AppTheme.primaryColor)
-                : AppTheme.surfaceColor.withOpacity(0.3),
+                ? (isCurrent ? AppTheme.primaryColor : AppTheme.accentColor) // Adjusted to new colors
+                : AppTheme.surfaceColor.withOpacity(0.3), // Adjusted to new colors
               borderRadius: BorderRadius.circular(1),
             ),
           ),

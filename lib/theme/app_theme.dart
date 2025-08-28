@@ -1,34 +1,34 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  // Core Colors - Black Mirror inspired
-  static const Color backgroundColor = Color(0xFF0A0A0F);
-  static const Color surfaceColor = Color(0xFF1A1A2E);
-  static const Color primaryColor = Color(0xFF00D4FF);
-  static const Color accentColor = Color(0xFF7C3AED);
-  static const Color textPrimary = Color(0xFFFFFFFF);
-  static const Color textSecondary = Color(0xFF8892B0);
-  static const Color textMuted = Color(0xFF495670);
+  // Core Colors - Modern & Futuristic
+  static const Color backgroundColor = Color(0xFFF5F5F7);
+  static const Color surfaceColor = Color(0xFFFFFFFF);
+  static const Color primaryColor = Color(0xFF3B82F6);
+  static const Color accentColor = Color(0xFFE5E7EB);
+  static const Color textPrimary = Color(0xFF1A1A2E);
+  static const Color textSecondary = Color(0xFF6B7280);
+  static const Color textMuted = Color(0xFF9CA3AF);
   
   // Gradient Colors
   static const List<Color> primaryGradient = [
-    Color(0xFF00D4FF),
-    Color(0xFF7C3AED),
+    Color(0xFF3B82F6),
+    Color(0xFF8B5CF6),
   ];
   
   static const List<Color> surfaceGradient = [
-    Color(0xFF1A1A2E),
-    Color(0xFF16213E),
+    Color(0xFFFFFFFF),
+    Color(0xFFF9FAFB),
   ];
   
   static const List<Color> backgroundGradient = [
-    Color(0xFF0A0A0F),
-    Color(0xFF1A1A2E),
+    Color(0xFFF5F5F7),
+    Color(0xFFE5E7EB),
   ];
 
-  static ThemeData get darkTheme {
+  static ThemeData get lightTheme {
     return ThemeData(
-      brightness: Brightness.dark,
+      brightness: Brightness.light,
       fontFamily: 'SF Pro Display',
       scaffoldBackgroundColor: backgroundColor,
       
@@ -80,30 +80,30 @@ class AppTheme {
         ),
       ),
       
-      colorScheme: const ColorScheme.dark(
+      colorScheme: const ColorScheme.light(
         primary: primaryColor,
-        secondary: accentColor,
+        secondary: Color(0xFF8B5CF6),
         surface: surfaceColor,
         background: backgroundColor,
-        onPrimary: Colors.white,
-        onSecondary: Colors.white,
+        onPrimary: textPrimary,
+        onSecondary: textPrimary,
         onSurface: textPrimary,
         onBackground: textPrimary,
       ),
     );
   }
 
-  // Custom Decorations
+  // Custom Decorations for the new theme
   static BoxDecoration get glassContainer => BoxDecoration(
-    color: surfaceColor.withOpacity(0.1),
+    color: surfaceColor.withOpacity(0.8),
     borderRadius: BorderRadius.circular(16),
     border: Border.all(
-      color: Colors.white.withOpacity(0.05),
+      color: Colors.black.withOpacity(0.05),
       width: 1,
     ),
     boxShadow: [
       BoxShadow(
-        color: Colors.black.withOpacity(0.2),
+        color: Colors.black.withOpacity(0.05),
         blurRadius: 20,
         offset: const Offset(0, 8),
       ),
@@ -111,14 +111,7 @@ class AppTheme {
   );
 
   static BoxDecoration get neuralContainer => BoxDecoration(
-    gradient: LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-      colors: [
-        surfaceColor.withOpacity(0.15),
-        surfaceColor.withOpacity(0.05),
-      ],
-    ),
+    color: surfaceColor,
     borderRadius: BorderRadius.circular(20),
     border: Border.all(
       color: primaryColor.withOpacity(0.1),
